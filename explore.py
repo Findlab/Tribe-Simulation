@@ -1,3 +1,18 @@
+#!/usr/bin/python2.7
+# -*- coding: cp1254 -*-
+
+
+########################################
+# TRIBE SIMULATION version 0.0.0.0.0.1
+#
+#Author:Mert Arıkan (Findlab)
+#GitHub: https://github.com/Findlab
+#
+#
+#If you want to add some codes;be my guest :)
+#
+########################################
+
 import random
 
 class Explore:
