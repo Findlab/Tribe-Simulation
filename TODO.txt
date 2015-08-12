@@ -1,0 +1,12 @@
+---WORKING--- Command prompt (Main module)
+---#1--- Fight system (depending on FIGHT_CHANCE or DEFENCE_CHANCE)
+---#2(need improve)--- Exploring system
+---#3--- More event are extremely necessary for more fun!
+
+
+
+
+
+
+
+---Maybe--- Save/load system in future
