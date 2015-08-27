@@ -18,7 +18,7 @@ import random
 class Enemy:
     def __init__(self):
         self.POP_ENEMY=50 #The population of ENEMY
-        self.ENEMY_RESOURCE={"food":random.randint(20,120),"spear":random.randint(0,POP_ENEMY),"wood":random.randint(50,200),"steel":0}
+        self.ENEMY_RESOURCE={"food":random.randint(20,120),"spear":random.randint(0,self.POP_ENEMY),"wood":random.randint(50,200),"steel":0}
         self.ENEMY_WARRIOR=0
         self.ENEMY_WALLS=False
         self.ENEMY_MINER=0
