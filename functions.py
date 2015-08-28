@@ -102,7 +102,7 @@ def sickness_player(): # probability of sickness for player
         boo.append("false")
         boo.append("true")
     else:
-        pass
+        continue
     sec=random.choice(boo)
     if sec=="true":
         sick=random.randint(0,5)
