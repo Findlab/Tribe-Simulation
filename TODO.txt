@@ -10,4 +10,6 @@
 
 
 
+
 ---Maybe--- Save/load system in future
+            Add another tribes and diplomacy with each 
