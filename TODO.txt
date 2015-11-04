@@ -1,8 +1,8 @@
 ---WORKING--- Command prompt (Main module)
 ---#1--- Fight system (depending on FIGHT_CHANCE or DEFENCE_CHANCE)
----#2(need improve)--- Exploring system
+---#2(need improve)--- Exploring system(Event-like)
 ---#3--- More event are extremely necessary for more fun! (Like organise festival etc.)
----#4--- Install system
+---#4--- Installing system
 
 
 
