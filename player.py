@@ -56,13 +56,3 @@ class Player:
 
     if __name__ == "__main__":
         __init__()
-
-##########MAIN MODULE################################
-        
-#if TRIBE_RESOURCE["food"]>=5 and TRIBE_RESOURCE["spear"]>=1 and TRIBE_RESOURCE["wood"]>=10:
-    #    TRIBE_RESOURCE["food"]-=5
-     #   TRIBE_RESOURCE["spear"]-=1
-      #  TRIBE_RESOURCE["wood"]-=10
-   # else:
-    #    print "Your resources are not enough"
-     #   print "You must have 5 food,1 spear and 10 wood at least"
