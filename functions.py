@@ -13,6 +13,9 @@
 #
 ########################################
 
+
+#### FUNCTIONS by Mert ARIKAN - 2015 ####
+
 import random
 from player import *
 from enemy import *
@@ -102,7 +105,7 @@ def sickness_player(): # probability of sickness for player
         boo.append("false")
         boo.append("true")
     else:
-        continue
+        pass
     sec=random.choice(boo)
     if sec=="true":
         sick=random.randint(0,5)
@@ -240,7 +243,18 @@ def trainWarriorEnemy():
     else:
         pass
     
+def buildWallPlayer():
+	if player.TRIBE_RESOURCE["wood"]>=120 and player.TRIBE_RESOURCE["steel"]>=50 and TRIBE_WALLS==False:
+		player.TRIBE_WALLS=True
+		print "Your wall has been built"
+	elif TRIBE_WALLS==True:
+		print "You have walls already"
+	else:
+		print "You don't have enough resource"
+		print "wood %d/120 \n steel %d/50" %(player.TRIBE_RESOURCE["wood"],player.TRIBE_RESOURCE["steel"])
+		
 
-
+def enemyDecision():
+    pass #to be continued...
 
 
