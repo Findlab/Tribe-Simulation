@@ -21,18 +21,16 @@ import explore #not completed
 
 player=Player()
 enemy=Enemy()
-randomEvent=["sickness_enemy","sickness_player","enemy_train","enemy_wood"]
+enemy_turn=["sickness_enemy","enemy_train","enemy_wood","enemy_steel","enemy_spear","enemy_reproduction"]
 order=["player"]
 
 ## commands list -- If i missed something or you added some functions,please
 ##                  fill this array.
-commands=["train warrior","stats","fight","reproduction","explore","build wall"]
+commands=["train warrior","stats","fight","reproduction","explore","build wall","collect wood","make steel","make spear"]
 ##NOTE: Explore should be random.
 
 print """
-WELCOME CONSOLE BASED AND TURN-BASED GAME - 'TRIBE SIMULATION' 
-
-PRODUCER:MERT ARIKAN
+WELCOME CONSOLE BASED AND TURN-BASED GAME - 'TRIBE SIMULATION'
 
 FIRST,YOU START WITH YOUR NAME. \n
 """
@@ -56,12 +54,18 @@ YOU CAN TYPE THESE COMMANDS:
 
 >fight -> fight against enemy tribe
 
+>collect wood -> collect wood (2 tribe member will go and collect them) 
+
+>make spear -> make spear to train warriors.
+
+>make steel -> if you have explore it,you can produce it.
+
 """ %(name.upper())
 
 while True:
 	while order[0]=="player":
 	
-		wish=raw_input(">>")
+		wish=raw_input("Your command >>")
 		if wish.lower()=="stats":
 			print "TRIBE's MORAL="+player.TRIBE_MORAL
 			print "TRIBE's POPULATION="+str(player.POP_TRIBE)
@@ -79,10 +83,12 @@ while True:
 		elif wish.lower()=="train warrior":
 			number=input("How many warrior do you want to train?")
 			if TRIBE_RESOURCE["food"]>=(number*5) and TRIBE_RESOURCE["spear"]>=(number*1) and TRIBE_RESOURCE["wood"]>=(number*10):
-				TRIBE_RESOURCE["food"]-=5
-				TRIBE_RESOURCE["spear"]-=1
-				TRIBE_RESOURCE["wood"]-=10
+				TRIBE_RESOURCE["food"]-=5*number
+				TRIBE_RESOURCE["spear"]-=1*number
+				TRIBE_RESOURCE["wood"]-=10*number
 				trainWarriorPlayer(number)
+				order.append("opponent")
+				order.remove("player")
 			else:
 				print "Your resources are not enough"
 				print "You must have %d food,%d spear and %d wood at least to train %d warriors" %(((number*5)-TRIBE.RESOURCE["food"]),(number-TRIBE.RESOURCE["spear"]),((number*10)-TRIBE.RESOURCE["wood"]),number)
@@ -91,12 +97,28 @@ while True:
     
 		elif wish.lower()=="build wall":
 			buildWallPlayer()
-        
-    
-
-
-
-
-
-
-
+			if player.TRIBE_WALLS==True:
+				order.append("opponent")
+				order.remove("player")
+			
+			
+		elif wish.lower()=="fight":
+			pass
+			
+	while order[0]=="opponent":
+		event=random.choice(enemy_turn)
+		if event=="sickness_enemy":
+			sickness_enemy()
+			order.append("player")
+			order.remove("opponent")
+		elif event=="enemy_reproduction":
+			reproductionEnemy()
+			order.append("player")
+			order.remove("opponent")
+		elif event=="enemy_train":
+			trainWarriorEnemy()
+			if trainWarriorEnemy()==-1:
+				continue
+			else:
+				order.append("player")
+				order.remove("opponent")
