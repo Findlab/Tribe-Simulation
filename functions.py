@@ -75,6 +75,7 @@ def winWar():
                 enemy.ENEMY_RESOURCE["%s"%(a)]-=b
                 player.TRIBE_RESOURCE["%s"%(a)]+=b
                 break
+
 def explore_player():
     pass #for now
 
@@ -235,13 +236,13 @@ def trainWarriorPlayer(number): #This function works if resources are avaible (M
 
 def trainWarriorEnemy():
     a=random.randint(0,10)
-    if enemy.ENEMY_RESOURCE["food"]>=5 and enemy.ENEMY_RESOURCE["spear"]>=1 and enemy.ENEMY_RESOURCE["wood"]>=10 and enemy.ENEMY_WARRIOR+a<=enemy.POP_ENEMY:
-        enemy.ENEMY_RESOURCE["food"]-=5
-        enemy.ENEMY_RESOURCE["spear"]-=1
-        enemy.ENEMY_RESOURCE["wood"]-=10
+    if enemy.ENEMY_RESOURCE["food"]>=5*a and enemy.ENEMY_RESOURCE["spear"]>=1*a and enemy.ENEMY_RESOURCE["wood"]>=10*a and enemy.ENEMY_WARRIOR+a<=enemy.POP_ENEMY:
+        enemy.ENEMY_RESOURCE["food"]-=5*a
+        enemy.ENEMY_RESOURCE["spear"]-=1*a
+        enemy.ENEMY_RESOURCE["wood"]-=10*a
         enemy.ENEMY_WARRIOR+=a
     else:
-        pass
+        return -1
     
 def buildWallPlayer():
 	if player.TRIBE_RESOURCE["wood"]>=120 and player.TRIBE_RESOURCE["steel"]>=50 and TRIBE_WALLS==False:
@@ -253,8 +254,4 @@ def buildWallPlayer():
 		print "You don't have enough resource"
 		print "wood %d/120 \n steel %d/50" %(player.TRIBE_RESOURCE["wood"],player.TRIBE_RESOURCE["steel"])
 		
-
-def enemyDecision():
-    pass #to be continued...
-
 
