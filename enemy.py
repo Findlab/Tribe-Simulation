@@ -48,15 +48,3 @@ class Enemy:
             self.ENEMY_DEFENCE_CHANCE=25+(self.ENEMY_WARRIOR*(3.14))+(self.ENEMY_WINS-self.ENEMY_LOSE)
         else:
             self.ENEMY_DEFENCE_CHANCE=5+(self.ENEMY_WARRIOR*(3.14))+(self.ENEMY_WINS-self.ENEMY_LOSE)
-
-
-
-########################MAIN MODULE############################
-
-#if ENEMY_RESOURCE["food"]>=5 and ENEMY_RESOURCE["spear"]>=1 and ENEMY_RESOURCE["wood"]>=10:
-    #    ENEMY_RESOURCE["food"]-=5
-     #   ENEMY_RESOURCE["spear"]-=1
-      #  ENEMY_RESOURCE["wood"]-=10
-   # else:
-    #    print "Your resources are not enough"
-     #   print "You must have 5 food,1 spear and 10 wood at least"
