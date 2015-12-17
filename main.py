@@ -54,7 +54,7 @@ YOU CAN TYPE THESE COMMANDS:
 
 >fight -> fight against enemy tribe
 
->collect wood -> collect wood (2 tribe member will go and collect them) 
+>collect wood -> collect wood
 
 >make spear -> make spear to train warriors.
 
@@ -103,7 +103,17 @@ while True:
 			
 			
 		elif wish.lower()=="fight":
+			pass #for now
+			
+		elif wish.lower()=="collect wood":
+			if player.POP_TRIBE>=2:
+				collectWood()
+			
+		elif wish.lower()=="make steel":
 			pass
+		
+		else:
+			print("There is no such a command")
 			
 	while order[0]=="opponent":
 		event=random.choice(enemy_turn)
@@ -122,3 +132,14 @@ while True:
 			else:
 				order.append("player")
 				order.remove("opponent")
+		
+			
+        
+    
+
+
+
+
+
+
+
