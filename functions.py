@@ -107,6 +107,7 @@ def sickness_player(): # probability of sickness for player
         boo.append("true")
     else:
         pass
+
     sec=random.choice(boo)
     if sec=="true":
         sick=random.randint(0,5)
@@ -248,10 +249,66 @@ def buildWallPlayer():
 	if player.TRIBE_RESOURCE["wood"]>=120 and player.TRIBE_RESOURCE["steel"]>=50 and TRIBE_WALLS==False:
 		player.TRIBE_WALLS=True
 		print "Your wall has been built"
-	elif TRIBE_WALLS==True:
+	elif player.TRIBE_WALLS==True:
 		print "You have walls already"
 	else:
 		print "You don't have enough resource"
 		print "wood %d/120 \n steel %d/50" %(player.TRIBE_RESOURCE["wood"],player.TRIBE_RESOURCE["steel"])
 		
 
+def collectWood():
+    boo=["true","false"]
+    if player.TRIBE_WINS-player.TRIBE_LOSE>=20:
+        boo.append("false")
+        boo.append("false")
+        boo.append("false")
+        boo.append("true")
+        boo.append("true")
+    elif player.TRIBE_WINS-player.TRIBE_LOSE>10 and player.TRIBE_WINS-player.TRIBE_LOSE<20:
+        boo.append("false")
+        boo.append("false")
+        boo.append("true")
+    elif player.TRIBE_WINS-player.TRIBE_LOSE<=10 and player.TRIBE_WINS-player.TRIBE_LOSE>5:
+        boo.append("false")
+        boo.append("true")
+    elif player.TRIBE_WINS-player.TRIBE_LOSE<=5 and player.TRIBE_WINS-player.TRIBE_LOSE>0:
+        boo.append("false")
+        boo.append("true")
+    else:
+        pass
+
+    sec=random.choice(boo)
+    if sec=="true":
+        a=random.randint(0,10)
+        player.TRIBE_RESOURCE["wood"]+=a
+        print "The number of your tribe's wood increased %d" % (a)
+    elif sec=="false":
+        pass
+
+def collectWoodEnemy():
+    boo=["true","false"]
+    if enemy.ENEMY_WINS-enemy.ENEMY_LOSE>=20:
+        boo.append("false")
+        boo.append("false")
+        boo.append("false")
+        boo.append("true")
+        boo.append("true")
+    elif enemy.ENEMY_WINS-enemy.ENEMY_LOSE>10 and enemy.ENEMY_WINS-enemy.ENEMY_LOSE<20:
+        boo.append("false")
+        boo.append("false")
+        boo.append("true")
+    elif enemy.ENEMY_WINS-enemy.ENEMY_LOSE<=10 and enemy.ENEMY_WINS-enemy.ENEMY_LOSE>5:
+        boo.append("false")
+        boo.append("true")
+    elif enemy.ENEMY_WINS-enemy.ENEMY_LOSE<=5 and enemy.ENEMY_WINS-enemy.ENEMY_LOSE>0:
+        boo.append("false")
+        boo.append("true")
+    else:
+        pass
+
+    sec=random.choice(boo)
+    if sec=="true":
+        a=random.randint(0,10)
+        enemy.ENEMY_RESOURCE["wood"]+=a
+    elif sec=="false":
+        pass
