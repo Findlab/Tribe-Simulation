@@ -82,16 +82,16 @@ while True:
 
 		elif wish.lower()=="train warrior":
 			number=input("How many warrior do you want to train?")
-			if TRIBE_RESOURCE["food"]>=(number*5) and TRIBE_RESOURCE["spear"]>=(number*1) and TRIBE_RESOURCE["wood"]>=(number*10):
-				TRIBE_RESOURCE["food"]-=5*number
-				TRIBE_RESOURCE["spear"]-=1*number
-				TRIBE_RESOURCE["wood"]-=10*number
+			if player.TRIBE_RESOURCE["food"]>=(number*5) and player.TRIBE_RESOURCE["spear"]>=(number*1) and player.TRIBE_RESOURCE["wood"]>=(number*10):
+				player.TRIBE_RESOURCE["food"]-=5*number
+				player.TRIBE_RESOURCE["spear"]-=1*number
+				player.TRIBE_RESOURCE["wood"]-=10*number
 				trainWarriorPlayer(number)
 				order.append("opponent")
 				order.remove("player")
 			else:
 				print "Your resources are not enough"
-				print "You must have %d food,%d spear and %d wood at least to train %d warriors" %(((number*5)-TRIBE.RESOURCE["food"]),(number-TRIBE.RESOURCE["spear"]),((number*10)-TRIBE.RESOURCE["wood"]),number)
+				print "You must have %d food,%d spear and %d wood at least to train %d warriors" %(((number*5)-player.TRIBE_RESOURCE["food"]),(number-player.TRIBE_RESOURCE["spear"]),((number*10)-player.TRIBE_RESOURCE["wood"]),number)
 
 			
     
@@ -132,14 +132,3 @@ while True:
 			else:
 				order.append("player")
 				order.remove("opponent")
-		
-			
-        
-    
-
-
-
-
-
-
-
